@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.004 ns
+From           : bpm[0]
+To             : lpm_rom:bpm_lut|altrom:srom|altsyncram:rom_block|altsyncram_ml01:auto_generated|ram_block1a4~porta_address_reg0
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 11.673 ns
+From           : lpm_counter:counter1|cntr_8kk:auto_generated|safe_q[8]
+To             : tempo_enable
+From Clock     : clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -3.233 ns
+From           : bpm[4]
+To             : lpm_rom:bpm_lut|altrom:srom|altsyncram:rom_block|altsyncram_ml01:auto_generated|ram_block1a0~porta_address_reg4
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 180.41 MHz ( period = 5.543 ns )
+From           : lpm_rom:bpm_lut|altrom:srom|altsyncram:rom_block|altsyncram_ml01:auto_generated|ram_block1a0~porta_address_reg7
+To             : lpm_counter:counter1|cntr_8kk:auto_generated|safe_q[0]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

@@ -1,0 +1,58 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+	   
+entity g04_note_timer is
+port ( clk, reset : in std_logic;
+	   note_duration : in std_logic_vector(2 downto 0);
+	   triplet : in std_logic;
+	   tempo_enable : in std_logic;
+	   TRIGGER : out std_logic);
+end g04_note_timer;
+
+architecture implementation of g04_note_timer is
+signal tempo_pulses : unsigned(8 downto 0);
+signal count : integer range 512 to 0;
+signal triplet_and_note_duration : std_logic_vector(3 downto 0);
+begin
+	triplet_and_note_duration <= triplet&note_duration;
+	with triplet_and_note_duration select tempo_pulses <=
+		"000000010" when "0000",
+		"000000101" when "0001",
+		"000001011" when "0010",
+		"000010111" when "0011",
+		"000101111" when "0100",
+		"001011111" when "0101",
+		"010111111" when "0110",
+		"101111111" when "0111",
+		"000000001" when "1000",
+		"000000011" when "1001",
+		"000000111" when "1010",
+		"000001111" when "1011",
+		"000011111" when "1100",
+		"000111111" when "1101",
+		"001111111" when "1110",
+		"011111111" when "1111";
+	counter : process (clk, tempo_pulses, reset, tempo_enable)
+	begin
+		if (reset = '0') then
+			count <= 0;
+			TRIGGER <= '1';
+		elsif (clk = '1' and clk'event) then
+			if (tempo_enable = '1') then
+				count <= count + 1;
+			end if;
+			if (count = 1) then
+				TRIGGER <= '0';
+			end if;
+			if (count = tempo_pulses) then
+				TRIGGER <= '1';
+				count <= 0;
+			end if;
+		end if;
+	end process;		
+		
+	
+
+end implementation;
+

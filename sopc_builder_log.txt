@@ -1,0 +1,6 @@
+Error: Error creating IP Search Path index file: could not create P:\.altera.quartus\ip
+onents.ipx
+Info: Using factories: CuspFactory, ImportFactory, DSPBuilderFactory, EmbeddedSwTclDriverFactory, JarFactory, TclModuleFactory, SopcXmlFactory, MegaVariationFactory, BeanElementFactory, LegacyFactory, DDRLegacyFactory, PresetFactory
+Progress: (0) searching P:/ECSE 323/Labs/Lab3/9.1sp2 (command line switch)
+Info: P:/ECSE 323/Labs/Lab3/9.1sp2 matched 1 files in 0.00 seconds
+Info: Found 0 components
